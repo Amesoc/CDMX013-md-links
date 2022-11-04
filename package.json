@@ -5,6 +5,6 @@
     "node": ">=16.x"
   },
   "dependencies": {
-    "markdown-it": "^13.0.1"
+    
   }
 }

@@ -1,18 +1,11 @@
-let path = require('path');
+const path = require('path');//Doc de node.js
+const fs = require('fs');
+const {getObjects} = require('./readFile.js')
 
-let processFile = (file) => {
-  let ext = (path.extname(file));
-  console.log(ext);
-
-  if (ext === '.md') {
-    console.log('si es la extensión ', ext);
-  } else {
-    console.log('no es .md');
-  }
-}
-
+console.log(getObjects('./README.md'))
 const mdLinks = (route) => {
   //ruta es absoluta o realtiva
+
   let changedRoute
 
   if (path.isAbsolute(route)) {
@@ -20,17 +13,26 @@ const mdLinks = (route) => {
   } else {
     changedRoute = path.resolve(route)
   }
+
+  if(fs.existsSync(route)){
+    let checklistPath = fs.statSync(route)
+
+    if(checklistPath.isDirectory()){
+      //console.log(TypeError);
+    }
+  }
   console.log(changedRoute)
   let ext = (path.extname(changedRoute));
-  console.log(ext);
+  //console.log(ext);
 
   if (ext === '.md') {
-    console.log('si es la extensión ', ext);
+    //console.log('si es la extensión ', ext);
   } else {
-    console.log('no es md ', ext);
+    //console.log('no es md ', ext);
   }
   //tengo un ruta absoluta
   //md o no md
+
 }
 
 mdLinks(process.argv[2]);
