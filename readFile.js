@@ -1,3 +1,4 @@
+const { rejects } = require('assert');
 const fs = require('fs');
 //const path = require('path');
 
@@ -8,6 +9,7 @@ function getObjects(route) {
     //console.log(content);
 
     content.forEach((line) => {
+        
         let linehrf = line.match(/\(.*\)/ig);
         let lineText = line.match(/\[.*\]/ig);
 
@@ -19,7 +21,7 @@ function getObjects(route) {
         let separator = lineclean.indexOf('#')
         let object = {
             href: lineclean.slice(separator + 1),
-            text: lineclean.slice(0, separator),
+            text: lineclean.slice(0, separator).slice(0,49),
             file: route,
         };
         objectsArray.push(object)

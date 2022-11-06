@@ -1,9 +1,13 @@
 const path = require('path');//Doc de node.js
 const fs = require('fs');
-const {getObjects} = require('./readFile.js')
+const {getObjects} = require('./readFile.js');
+const {validate} = require('./linksValidate.js');
 
 console.log(getObjects('./README.md'))
 const mdLinks = (route) => {
+  //new Promise((resolve, rejects))=>{
+
+  //}
   //ruta es absoluta o realtiva
 
   let changedRoute
